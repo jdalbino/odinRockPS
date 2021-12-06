@@ -16,49 +16,50 @@ let ComputerScore = 0;
 //Function that creates 1 round of game and return result based on selection and computer selection.
 function playRound(playerSelection, computerSelection) {
   //playerSelection = playerSelection.toLowerCase
+  
   if (playerSelection.toLowerCase() == "rock") {
     if (computerSelection == "rock") {
-      checkResult();
+      //checkResult();
       return "Tie";
     } else if (computerSelection == "paper") {
       ComputerScore = ComputerScore + 1;
       computer.innerHTML = ComputerScore;
-      checkResult();
+      //checkResult();
       return "You Loose Paper beats Rock";
     } else {
       PlayerScore = PlayerScore + 1;
       player.innerHTML = PlayerScore;
-      checkResult();
+      //checkResult();
       return "You Win Rock Beats Scissors";
     }
   } else if (playerSelection.toLowerCase() == "paper") {
     if (computerSelection == "rock") {
       PlayerScore = PlayerScore + 1;
       player.innerHTML = PlayerScore;
-      checkResult();
+      //checkResult();
       return "You Win Paper beats Rock";
     } else if (computerSelection == "paper") {
-      checkResult();
+      //checkResult();
       return "Tie";
     } else {
       ComputerScore = ComputerScore + 1;
       computer.innerHTML = ComputerScore;
-      checkResult();
+      //checkResult();
       return "You Loose Scissors Beats Paper";
     }
   } else {
     if (computerSelection == "rock") {
       ComputerScore = ComputerScore + 1;
       computer.innerHTML = ComputerScore;
-      checkResult();
+      //checkResult();
       return "You Loose Rock Beats Scissors";
     } else if (computerSelection == "paper") {
       PlayerScore = PlayerScore + 1;
       player.innerHTML = PlayerScore;
-      checkResult();
+      //checkResult();
       return "You Win Scissors Beats Paper";
     } else {
-      checkResult();
+      //checkResult();
       return "Tie";
     }
   }
@@ -87,15 +88,18 @@ let divselection = document.querySelector(".result_display");
 const rockSelected = document.querySelector(".player_rock");
 rockSelected.addEventListener("click", function () {
   divselection.innerHTML = playRound("rock", computerPlay());
+  checkResult();
 });
 
 const paperSelected = document.querySelector(".player_paper");
 paperSelected.addEventListener("click", function () {
   divselection.innerHTML = playRound("paper", computerPlay());
+  checkResult();
 });
 const scissorSelected = document.querySelector(".player_scissor");
 scissorSelected.addEventListener("click", function () {
   divselection.innerHTML = playRound("scissor", computerPlay());
+  checkResult();
 });
 
 const player = document.querySelector(".player_score");
@@ -112,16 +116,26 @@ restart();
 let checkResult = function () {
   if ((PlayerScore == 5) | (ComputerScore == 5)) {
     if (PlayerScore < ComputerScore) {
-      alert("You Loose");
       restart();
+      alertLose();
     } else {
-      alert("You Win");
       restart();
+      alertWin();
     }
   } else;
 };
 
+let alertWin = function() {
+  setTimeout("",5000);
+  alert("You Win");
+}
+let alertLose = function() {
+  setTimeout("",5000);
+  alert("You loose");
+}
+
 let restart = function () {
+  //setTimeout('', 500);
   divselection.innerHTML = "";
   player.innerHTML = "";
   computer.innerHTML = "";
