@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-    <script src="js.js"></script>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="style.css" />
+    <script src="js.js" defer></script>
+  </head>
+  <body>
+    <header>
+        <div class="titlePage">
+      <h1 class="titlegame">Rock Paper Scissors</h1>
+    </div>
+    </header>
+
+    <main>
+      <div>
+        <!-- <h4>Round:</h4> -->
+        <p>Choose Rock, Paper or Scissors:</p>
+
+        <div class="buttons">
+          <button class="player_rock">Rock</button>
+          <!--Boton rock. -->
+          <button class="player_paper">Paper</button>
+          <!--Boton Paper. -->
+          <button class="player_scissor">Scissors</button>
+          <!--Boton Scissors. -->
+        </div>
+        <div class="results_wrapper">
+            <h4 class="result_title">Results:</h4>
+
+            <div class="result_display" style="font-weight: bold"></div>
+
+            <h4 style="align-self: flex-start;">Score:</h4>
+            <div style="margin-bottom: 50px">
+            <label>Player:</label>
+            <div class="player_score"></div>
+            <br />
+            <label>Computer:</label>
+            <div class="computer_score"></div>
+            </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <button class="restartGame">Restart</button>
+    </footer>
+  </body>
 </html>
